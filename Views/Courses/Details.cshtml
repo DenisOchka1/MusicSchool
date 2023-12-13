@@ -1,0 +1,42 @@
+﻿@model MusicSchool.Models.Data.Course
+
+@{
+    ViewData["Title"] = "Курсы";
+}
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Просмотр курса
+</h3>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.CourseDescr)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.CourseDescr)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.CountLesson)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.CountLesson)
+        </dd>
+       @*  <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.User.Id)
+        </dd> *@
+    </dl>
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MusicSchool.Models.Data.Schedule>
+
+@{
+    ViewData["Title"] = "Расписание";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item active">Расписание</li>
+    </ol>
+</nav>
+<h2>Расписание</h2>
+
+<h6>
+    <a class="text-dark" asp-action="Create">
+        <i class="far fa-plus-square"></i>  Добавить участника курса
+    </a>
+</h6>
+
+<div class="table">
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassEndTime)
+            </th>
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model) 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassStartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassEndTime)
+                </td>
+                <td>
+                        <a class="btn text-dark" asp-action="Details" asp-route-id="@item.Id" title="Посмотреть подробнее">
+                            <i class="far fa-eye"></i>
+                        </a> |
+                        <a class="btn text-dark" asp-action="Edit" asp-route-id="@item.Id" title="Редактировать">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a> |
+                        <a class="btn text-dark" asp-action="Delete" asp-route-id="@item.Id" title="Удалить">
+                            <i class="far fa-minus-square"></i>
+                        </a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

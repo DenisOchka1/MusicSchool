@@ -1,0 +1,48 @@
+﻿@model MusicSchool.ViewModels.Schedules.CreateSchedulesViewModel
+@{
+    ViewBag.Title = "Создание - Расписание";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="User_Course" asp-action="Index">Пользователи</a></li>
+        <li class="breadcrumb-item active">Создание</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Добавление Расписания
+</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdUser" class="control-label"></label>
+                <select asp-for="IdUser" class="form-control" asp-items="ViewBag.Email"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCourse" class="control-label"></label>
+                <select asp-for="IdCourse" class="form-control" asp-items="ViewBag.CourseName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassStartTime" class="control-label"></label>
+                <input asp-for="ClassStartTime" class="form-control" />
+                <span asp-validation-for="ClassStartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassEndTime" class="control-label"></label>
+                <input asp-for="ClassEndTime" class="form-control" />
+                <span asp-validation-for="ClassEndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model MusicSchool.ViewModels.Schedules.EditSchedulesViewModel
+@{
+    ViewData["Title"] = "Изменение - Расписание";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Users" asp-action="Index">Пользователи</a></li>
+        <li class="breadcrumb-item active">Изменение</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Изменение информации о расписании
+</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <select asp-for="Email" class="form-control" asp-items="ViewBag.Email"></select>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourseName" class="control-label"></label>
+                <select asp-for="CourseName" class="form-control" asp-items="ViewBag.CourseName"></select>
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassStartTime" class="control-label"></label>
+                <input asp-for="ClassStartTime" class="form-control" />
+                <span asp-validation-for="ClassStartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassEndTime" class="control-label"></label>
+                <input asp-for="ClassEndTime" class="form-control" />
+                <span asp-validation-for="ClassEndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
