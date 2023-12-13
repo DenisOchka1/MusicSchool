@@ -17,7 +17,7 @@ namespace MusicSchool.Controllers
         {
             _context = context;
            // _userManager = user;
-        }
+        } 
 
         // GET: Courses
         public async Task<IActionResult> Index()
